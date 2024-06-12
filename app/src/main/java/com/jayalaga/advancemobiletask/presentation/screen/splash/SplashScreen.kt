@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.jayalaga.advancemobiletask.R
 import com.jayalaga.advancemobiletask.data.DataStore
+import com.jayalaga.advancemobiletask.navigation.Screen
 import kotlinx.coroutines.delay
 
 @Composable

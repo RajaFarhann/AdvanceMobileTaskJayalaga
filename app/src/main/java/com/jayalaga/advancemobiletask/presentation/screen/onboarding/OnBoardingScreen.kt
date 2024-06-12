@@ -51,7 +51,7 @@ fun OnBoardingScreen(
     OnBoardingContent(
         onBoardings = onBoardings,
         moveToLogin = {
-            navController.navigate(Screen.Login.route) {
+            navController.navigate(Screen.Dummy.route) {
                 popUpTo(Screen.OnBoarding.route) {
                     inclusive = true
                 }
