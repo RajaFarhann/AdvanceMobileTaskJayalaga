@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "636034518247",
+    "project_id": "jayalaga-779b5",
+    "storage_bucket": "jayalaga-779b5.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636034518247:android:d6719905fea9c12094e642",
+        "android_client_info": {
+          "package_name": "com.jayalaga.advancemobiletask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636034518247-2b409egl223199609f8egk1rloqhqev5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.jayalaga.advancemobiletask",
+            "certificate_hash": "5b960ecc1159b03ca462f453b4bc337df62b333a"
+          }
+        },
+        {
+          "client_id": "636034518247-bvtcts4227qte4er0hlqm9vi0critmq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBSQrGx-Y_3G3Odvar9tS0xeXyGrNHGDX4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636034518247-bvtcts4227qte4er0hlqm9vi0critmq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

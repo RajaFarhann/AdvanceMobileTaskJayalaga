@@ -7,5 +7,9 @@ sealed class Screen (val route: String){
     data object Home: Screen ("home")
     data object Dummy: Screen ("dummy")
 
+    data object Login: Screen ("login")
+    data object Schedule: Screen ("schedule")
+    data object Favorite: Screen ("favorite")
+
 
 }

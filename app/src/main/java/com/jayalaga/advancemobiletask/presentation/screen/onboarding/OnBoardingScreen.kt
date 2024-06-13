@@ -36,7 +36,8 @@ import com.airbnb.lottie.compose.LottieAnimation
 import com.airbnb.lottie.compose.LottieCompositionSpec
 import com.airbnb.lottie.compose.LottieConstants
 import com.airbnb.lottie.compose.rememberLottieComposition
-import com.jayalaga.advancemobiletask.data.OnBoardingData
+import com.google.firebase.auth.FirebaseAuth
+import com.jayalaga.advancemobiletask.data.local.OnBoardingData
 import com.jayalaga.advancemobiletask.model.OnBoardingItem
 import com.jayalaga.advancemobiletask.navigation.Screen
 import kotlinx.coroutines.launch
@@ -47,13 +48,20 @@ fun OnBoardingScreen(
     modifier: Modifier = Modifier
 ) {
     val onBoardings = OnBoardingData.onBoardingItems
-
     OnBoardingContent(
         onBoardings = onBoardings,
         moveToLogin = {
-            navController.navigate(Screen.Dummy.route) {
-                popUpTo(Screen.OnBoarding.route) {
-                    inclusive = true
+            if (FirebaseAuth.getInstance().currentUser?.email.isNullOrEmpty()) {
+                navController.navigate(Screen.Login.route){
+                    popUpTo(Screen.OnBoarding.route) {
+                        inclusive = true
+                    }
+                }
+            } else {
+                navController.navigate(Screen.Dummy.route) {
+                    popUpTo(Screen.OnBoarding.route) {
+                        inclusive = true
+                    }
                 }
             }
         },

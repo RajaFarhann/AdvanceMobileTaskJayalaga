@@ -8,7 +8,7 @@ import android.widget.Toast
 import androidx.compose.material3.DatePickerState
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.TimePickerState
-import com.jayalaga.advancemobiletask.data.ReminderReceiver
+import com.jayalaga.advancemobiletask.data.local.ReminderReceiver
 import com.jayalaga.advancemobiletask.utils.NotificationKeys.RMNDR_NOTI_ID
 import com.jayalaga.advancemobiletask.utils.NotificationKeys.RMNDR_NOTI_TITLE_KEY
 import java.util.Calendar
