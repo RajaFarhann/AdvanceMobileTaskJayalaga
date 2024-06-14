@@ -58,5 +58,31 @@ object DummyData {
             time = "15:00 WIB",
             location = "Batam, Indonesia"
         ),
+        Schedule(
+            id = 10,
+            title = "UI Student Fest",
+            time = "15:00 WIB",
+            location = "Batam, Indonesia"
+        ),
+        Schedule(
+            id = 11,
+            title = "Developer Vestival IL",
+            time = "15:00 WIB",
+            location = "Batam, Indonesia"
+        ),
+        Schedule(
+            id = 12,
+            title = "UI Student Fest",
+            time = "15:00 WIB",
+            location = "Batam, Indonesia"
+        ),
+        Schedule(
+            id = 13,
+            title = "Developer Vestival IL",
+            time = "15:00 WIB",
+            location = "Batam, Indonesia"
+        ),
+
+
     )
 }

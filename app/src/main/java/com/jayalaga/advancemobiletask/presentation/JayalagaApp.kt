@@ -4,6 +4,7 @@ import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
+import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Star
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -11,7 +12,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
@@ -21,20 +21,24 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.navigation.NavController
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import com.jayalaga.advancemobiletask.R
 import com.jayalaga.advancemobiletask.navigation.NavigationItem
 import com.jayalaga.advancemobiletask.navigation.Screen
-import com.jayalaga.advancemobiletask.presentation.Schedule.ScheduleScreen
+import com.jayalaga.advancemobiletask.presentation.screen.schedule.DetailScreen
+import com.jayalaga.advancemobiletask.presentation.screen.schedule.ScheduleScreen
 import com.jayalaga.advancemobiletask.presentation.screen.dummyscreen.DummyScreen
+import com.jayalaga.advancemobiletask.presentation.screen.favorite.FavoriteScreen
 import com.jayalaga.advancemobiletask.presentation.screen.login.LoginScreen
 import com.jayalaga.advancemobiletask.presentation.screen.onboarding.OnBoardingScreen
+import com.jayalaga.advancemobiletask.presentation.screen.profile.ProfileScreen
 import com.jayalaga.advancemobiletask.presentation.screen.splash.SplashScreen
 import com.jayalaga.advancemobiletask.utils.shouldShowBottomBar
 
@@ -85,8 +89,22 @@ fun JayalagaApp(
             composable(Screen.Dummy.route){
                 DummyScreen(navController)
             }
+            composable(Screen.Favorite.route){
+                FavoriteScreen(navController)
+            }
+            composable(Screen.Profile.route){
+                ProfileScreen(navController)
+            }
             composable(Screen.Schedule.route){
                 ScheduleScreen(navController)
+            }
+            composable(Screen.Detail.route + "/{schedule}",
+                arguments = listOf(navArgument("schedule") {type = NavType.IntType})
+            ){navBackStackEntry ->
+                DetailScreen(
+                    navController = navController,
+                    scheduleId = navBackStackEntry.arguments?.getInt("schedule")
+                )
             }
         }
     }
@@ -106,19 +124,19 @@ private fun BottomBar(
 
         val navigationItems = listOf(
             NavigationItem(
-                title = stringResource(id = R.string.menu_favorite),
-                icon = Icons.Default.Star,
-                screen = Screen.Dummy
-            ),
-            NavigationItem(
-                title = stringResource(id = R.string.dummy),
-                icon = Icons.Default.Home,
-                screen = Screen.Dummy
-            ),
-            NavigationItem(
                 title = stringResource(id = R.string.menu_schedule),
                 icon = Icons.Default.Timer,
-                screen = Screen.Dummy
+                screen = Screen.Schedule
+            ),
+            NavigationItem(
+                title = stringResource(id = R.string.menu_favorite),
+                icon = Icons.Default.Star,
+                screen = Screen.Favorite
+            ),
+            NavigationItem(
+                title = stringResource(id = R.string.menu_profile),
+                icon = Icons.Default.Person,
+                screen = Screen.Profile
             ),
         )
         navigationItems.map { item ->

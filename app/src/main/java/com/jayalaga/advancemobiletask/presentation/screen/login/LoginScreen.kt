@@ -70,7 +70,7 @@ fun LoginScreen(
                 val result = account.getResult(ApiException::class.java)
                 val credential = GoogleAuthProvider.getCredential(result.idToken, null)
                 viewModel.loginWithGoogle(credential) {
-                    navController.navigate(Screen.Dummy.route) {
+                    navController.navigate(Screen.Schedule.route) {
                         popUpTo(Screen.Login.route) {
                             inclusive = true
                         }
@@ -100,7 +100,7 @@ fun LoginScreen(
                             .show()
                     } else {
                         viewModel.loginUser(email, password) {
-                            navController.navigate(Screen.Dummy.route) {
+                            navController.navigate(Screen.Schedule.route) {
                                 popUpTo(Screen.Login.route) {
                                     inclusive = true
                                 }
@@ -145,7 +145,7 @@ fun LoginScreen(
                         ).show()
                     } else {
                         viewModel.registerUser(email, password) {
-                            navController.navigate(Screen.Dummy.route) {
+                            navController.navigate(Screen.Schedule.route) {
                                 popUpTo(Screen.Login.route) { inclusive = true }
                             }
                             email = ""

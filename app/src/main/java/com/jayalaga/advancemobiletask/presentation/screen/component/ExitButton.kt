@@ -19,7 +19,7 @@ fun ExitButton(
         horizontalArrangement = Arrangement.SpaceBetween,
         modifier = modifier.fillMaxWidth()
     ){
-        IconButton(onClick = { onLogoutClick }) {
+        IconButton(onClick = onLogoutClick) {
             Icon(imageVector = Icons.AutoMirrored.Filled.Logout, contentDescription = "LogoutButton")
         }
     }

@@ -48,6 +48,7 @@ fun OnBoardingScreen(
     modifier: Modifier = Modifier
 ) {
     val onBoardings = OnBoardingData.onBoardingItems
+
     OnBoardingContent(
         onBoardings = onBoardings,
         moveToLogin = {
@@ -58,7 +59,7 @@ fun OnBoardingScreen(
                     }
                 }
             } else {
-                navController.navigate(Screen.Dummy.route) {
+                navController.navigate(Screen.Schedule.route) {
                     popUpTo(Screen.OnBoarding.route) {
                         inclusive = true
                     }
